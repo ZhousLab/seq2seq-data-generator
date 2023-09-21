@@ -38,11 +38,11 @@ def dataset_generator(
     start = 0
     if sliding_window:
         while start + length < train_data.shape[0]:
-            train.append(data[int(start) : int(start + length)])
+            train.append(train_data[int(start) : int(start + length)])
             start += 1
     else:
         while start + length < train_data.shape[0]:
-            train.append(data[int(start) : int(start + length)])
+            train.append(train_data[int(start) : int(start + length)])
             start = int(start + length * (1 - overlap_ratio))
     train = np.array(train)
 
@@ -50,11 +50,11 @@ def dataset_generator(
     start = 0
     if sliding_window:
         while start + length < test_data.shape[0]:
-            test.append(data[int(start) : int(start + length)])
+            test.append(test_data[int(start) : int(start + length)])
             start += 1
     else:
         while start + length < test_data.shape[0]:
-            test.append(data[int(start) : int(start + length)])
+            test.append(test_data[int(start) : int(start + length)])
             start = int(start + length * (1 - overlap_ratio))
     test = np.array(test)
 
